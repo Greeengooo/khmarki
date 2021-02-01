@@ -11,8 +11,10 @@ private static int[][] cost;
 private static char[][] ops;
 private static List <String> output;
     public static int computeLevenshtein(String A, String B) {
-        int lenA = A.length();
-        int lenB = B.length();
+        for (int j = 0; j < lenA + 1; j++) {
+            cost[j][0] = j;
+            ops[j][0] = 'D';
+        }
         cost = new int[lenA + 1][lenB + 1];
         ops = new char[lenA + 1][lenB + 1];
         output = new ArrayList<>();
